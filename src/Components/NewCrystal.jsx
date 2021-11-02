@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 function NewCrystal({create}) {
 
@@ -26,21 +26,21 @@ function NewCrystal({create}) {
     }
 
     return (
-        <div className="store__form">
-            <h2>Add new animal</h2>
-            <div className="store__form__input">
-                <span>Product name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
+        <div className="jewelry__newItem">
+            <h2>Add new crystal</h2>
+            <div className="crystal__form__input">
+                <span>Crystal name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
             </div>
-            <div className="store__form__input">
+            <div className="crystal__form__input">
             <span>Quantity</span><input type="text" value={inputs.quantity} onChange={(e) => formControl(e, 'quantity')} />
             </div>
-            <div className="store__form__input">
-            <span>Price</span><input type="text" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
+            <div className="crystal__form__input">
+            <span>Crystal price</span><input type="text" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
             </div>
-            <div className="store__form__input">
+            <div className="crystal__form__input">
             <span>Last order</span><input type="date" value={inputs.last_order} onChange={(e) => formControl(e, 'last_order')} />
             </div>
-            <div className="store__form__input">
+            <div className="crystal__form__input">
             <button onClick={handleCreate}>Add</button>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-function StoreModal({showModal, hide, crystal, edit, remove}) {
+function StoreModal({showModal, hide, modalElement, edit, remove}) {
+
     const [inputs, setInputs] = useState({
         product: '',
         quantity: '',
@@ -8,7 +9,7 @@ function StoreModal({showModal, hide, crystal, edit, remove}) {
         last_order: ''
     })
 
-    const formControl = (e, what) => {
+    const control = (e, what) => {
         const inputsCopy = { ...inputs };
         inputsCopy[what] = e.target.value;
         setInputs(inputsCopy);
@@ -16,12 +17,12 @@ function StoreModal({showModal, hide, crystal, edit, remove}) {
 
     useEffect(() => {
         setInputs({
-            product: crystal.product,
-            quantity: crystal.quantity,
-            price: crystal.price,
-            last_order: crystal.last_order.slice(0,10)
+            product: modalElement.product,
+            quantity: modalElement.quantity,
+            price: modalElement.price,
+            last_order: modalElement.last_order.slice(0, 10)
         })
-    },[crystal])
+    }, [modalElement])
 
     const handleEdit = () => {
         edit({
@@ -29,37 +30,31 @@ function StoreModal({showModal, hide, crystal, edit, remove}) {
             quantity: inputs.quantity,
             price: inputs.price,
             last_order: inputs.last_order
-        }, crystal.id)
+        }, modalElement.id)
     }
 
-    
-    return (
-        <div className="store__modal" style={{
-            display: showModal ? 'flex' : 'none',
-            top: window.scrollY + 100 + 'px'
-            }}>
-            <div className="store__form">
-            <h2>Edit animal</h2>
-            <div className="store__form__input">
-                <span>Product name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
-            </div>
-            <div className="store__form__input">
-            <span>Quantity</span><input type="text" value={inputs.quantity} onChange={(e) => formControl(e, 'quantity')} />
-            </div>
-            <div className="store__form__input">
-            <span>Price</span><input type="text" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
-            </div>
-            <div className="store__form__input">
-            <span>Last order</span><input type="date" value={inputs.last_order} onChange={(e) => formControl(e, 'last_order')} />
-            </div>
-            <div className="store__form__input__buttons">
-            <button onClick={handleEdit}>Save</button>
-            <button onClick={hide}>Cancel</button>
-            <button onClick={() => remove(crystal.id)}>Delete</button>
-            </div>
-        </div>
-        </div>
-    )
-}
 
+    return (
+        <div className='modal' style={{ display: showModal ? 'flex' : 'none' }}>
+            <div className='nauja'>
+                <div className='nauja-vel'>
+                    <span>Edit name: </span> <input type="text" value={inputs.product} onChange={(e) => control(e, 'product')} />
+                </div>
+                <div className='nauja-vel'>
+                    <span>Edit type: </span> <input type="text" value={inputs.quantity} onChange={(e) => control(e, 'quantity')} />
+                </div>
+                <div className='nauja-vel'>
+                    <span>Edit price: </span> <input type="text" value={inputs.price} onChange={(e) => control(e, 'price')} />
+                </div>
+                <div className='nauja-vel'>
+                    <span>Edit last order date: </span> <input type="date" value={inputs.last_order} onChange={(e) => control(e, 'last_order')} />
+                </div>
+                <button onClick={handleEdit}>Save</button>
+                <button onClick={hide}>Cancel</button>
+                <button onClick={() => remove(modalElement.id)}>Delete</button>
+            </div>
+        </div>
+
+    );
+}
 export default StoreModal;
