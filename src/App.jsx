@@ -19,7 +19,7 @@ function App() {
     })
 
     useEffect(() => {
-        axios.get('http://localhost:3003/animals')
+        axios.get('http://localhost:3003/crystals')
         .then(res => {
             setCrystals(res.data);
             console.log(res.data);
@@ -27,7 +27,7 @@ function App() {
     }, [lastUpdate])
 
     const create = crystal => {
-        axios.post('http://localhost:3003/exam', crystal)
+        axios.post('http://localhost:3003/crystals', crystal)
         .then(res => {
             setLastUpdate(Date.now())
             console.log(res.data);
@@ -43,7 +43,7 @@ function App() {
     }
     const edit = (crystal, id) => {
         setShowModal(false);
-        axios.put('http://localhost:3003/exam/' + id, crystal)
+        axios.put('http://localhost:3003/crystals/' + id, crystal)
         .then(res => {
             setLastUpdate(Date.now())
             console.log(res.data);
@@ -52,7 +52,7 @@ function App() {
     
       const remove = (id) => {
         setShowModal(false);
-        axios.delete('http://localhost:3003/exam/' + id)
+        axios.delete('http://localhost:3003/crystals/' + id)
         .then(res => {
             setLastUpdate(Date.now())
             console.log(res.data);
