@@ -5,9 +5,9 @@ function StoreList({crystals, modal}) {
     return (
         <div className="crystals__list">
             <div className="my_store_welcome">  
-            <h2>Welcome to mine litte crystal store :D</h2>
+            <h2>Welcome to mine small store :D</h2>
             </div>
-            <div>
+            <div className="my_store_map">
                 {crystals.map(crystal => <StoreCrystal key={crystal.id} crystal={crystal} modal={modal}></StoreCrystal>)}
             </div>
             
