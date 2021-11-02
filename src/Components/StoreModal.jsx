@@ -38,16 +38,16 @@ function StoreModal({showModal, hide, modalElement, edit, remove}) {
         <div className='modal' style={{ display: showModal ? 'flex' : 'none' }}>
             <div className='mystore'>
                 <h2>Edit Crystal</h2>
-                <div className='mystore__inpu'>
+                <div className='mystore__input'>
                     <span>Edit name: </span> <input type="text" value={inputs.product} onChange={(e) => control(e, 'product')} />
                 </div>
-                <div className='mystore__inpu'>
+                <div className='mystore__input'>
                     <span>Edit type: </span> <input type="text" value={inputs.quantity} onChange={(e) => control(e, 'quantity')} />
                 </div>
-                <div className='mystore__inpu'>
+                <div className='mystore__input'>
                     <span>Edit price: </span> <input type="text" value={inputs.price} onChange={(e) => control(e, 'price')} />
                 </div>
-                <div className='mystore__inpu'>
+                <div className='mystore__input'>
                     <span>Edit last order date: </span> <input type="date" value={inputs.last_order} onChange={(e) => control(e, 'last_order')} />
                 </div>
                 <button onClick={handleEdit}>Save</button>

@@ -61,9 +61,9 @@ function App() {
 
     return (
         <div className="crystals">
-            <NewCrystal create={create}></NewCrystal>
-            <StoreList crystals={crystals} modal={modal}></StoreList>
             <StoreModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></StoreModal>
+            <StoreList crystals={crystals} modal={modal}></StoreList>
+            <NewCrystal create={create}></NewCrystal>
         </div>
     )
 }

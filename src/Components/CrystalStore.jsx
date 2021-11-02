@@ -5,7 +5,7 @@ function CrystalStore({crystal, modal}) {
     }
 
     return (
-        <div className='CrystalsStore'>
+        <div className='crystalsStore'>
             <div>
                 <span>Product Name: </span>
                 <div>{crystal.product}</div>
