@@ -51,8 +51,8 @@ function StoreModal({showModal, hide, modalElement, edit, remove}) {
                     <span>Edit last order date: </span> <input type="date" value={inputs.last_order} onChange={(e) => control(e, 'last_order')} />
                 </div>
                 <button onClick={handleEdit}>Save</button>
-                <button onClick={hide}>Cancel</button>
                 <button onClick={() => remove(modalElement.id)}>Delete</button>
+                <button onClick={hide}>Cancel</button>
             </div>
         </div>
 

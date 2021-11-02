@@ -6,17 +6,17 @@ function StoreCrystal({crystal, modal}) {
     }
 
     return (
-        <div className="crystals__list__crystalList">
-            <div className="crystal__list__crystalList__product">
+        <div className="crystals_crystalList">
+            <div className="crystal_crystalList__product">
                 <span><i>Item name: </i> {crystal.product}</span>    
             </div>
-            <div className="crystal__list__crystalList__quantity">
+            <div className="crystal_crystalList__quantity">
                 <span><i>Quantity: </i> {crystal.quantity}</span>    
             </div>
-            <div className="crystal__list__crystalList__price">
+            <div className="crystal_crystalList__price">
                 <span><i>Price: </i> {crystal.price} Eur</span>          
             </div>
-            <div className="crystal__list__CrystalList__last_order">
+            <div className="crystal_CrystalList__last_order">
                 <span><i>Last order: </i> {crystal.last_order.slice(0, 10)}</span>    
             </div>
             <button onClick={showEdit}>Edit</button>
