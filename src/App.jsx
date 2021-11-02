@@ -6,13 +6,13 @@ import NewCrystal from "./Components/NewCrystal";
 
 function App() {
 
-    const [animals, setAnimals] = useState([]);
+    const [crystals, setCrystals] = useState([]);
 
     const [lastUpdate, setLastUpdate] = useState(Date.now())
 
     const [showModal, setShowModal] = useState(false)
 
-    const [modalAnimal, setModalAnimal] = useState({
+    const [modalCrystal, setModalCrystal] = useState({
         product: '',
         quantity: '',
         price: '',
@@ -23,22 +23,22 @@ function App() {
     useEffect(() => {
         axios.get('http://localhost:3003/animals')
             .then(res => {
-                setAnimals(res.data);
+                setCrystals(res.data);
                 console.log(res.data);
             })
     }, [lastUpdate])
 
-    const create = animal => {
-        axios.post('http://localhost:3003/animals', animal)
+    const create = newCrystal => {
+        axios.post('http://localhost:3003/animals', newCrystal)
             .then(res => {
                 console.log(res.data);
                 setLastUpdate(Date.now());
             })
     }
 
-    const edit = (animal, id) => {
+    const edit = (newCrystal, id) => {
         setShowModal(false);
-        axios.put('http://localhost:3003/animals/'+id, animal)
+        axios.put('http://localhost:3003/animals/'+id, newCrystal)
             .then(res => {
                 console.log(res.data);
                 setLastUpdate(Date.now());
@@ -55,9 +55,9 @@ function App() {
     }
 
 
-    const modal = (animal) => {
+    const modal = (newCrystal) => {
         setShowModal(true);
-        setModalAnimal(animal);
+        setModalCrystal(newCrystal);
     }
 
     const hide = () => {
@@ -65,10 +65,10 @@ function App() {
     }
 
     return (
-        <div className="zoo">
-            <ZooCreate create={create}></ZooCreate>
-            <ZooList animals={animals} modal={modal}></ZooList>
-            <ZooModal edit={edit} remove={remove} hide={hide} animal={modalAnimal} showModal={showModal}></ZooModal>
+        <div className="Crystal">
+            <NewCrystal create={create}></NewCrystal>
+            <StoreList crystals={crystals} modal={modal}></StoreList>
+            <StoreModal edit={edit} remove={remove} hide={hide} newCrystal={modalCrystal} showModal={showModal}></StoreModal>
         </div>
     )
 }
