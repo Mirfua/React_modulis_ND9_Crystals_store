@@ -68,7 +68,7 @@ function App() {
         <div className="Crystal">
             <NewCrystal create={create}></NewCrystal>
             <StoreList crystals={crystals} modal={modal}></StoreList>
-            <StoreModal edit={edit} remove={remove} hide={hide} newCrystal={modalCrystal} showModal={showModal}></StoreModal>
+            <StoreModal showModal={showModal} remove={remove} hide={hide} edit={edit} modalCrystal={modalCrystal}></StoreModal>
         </div>
     )
 }

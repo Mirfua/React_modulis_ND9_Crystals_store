@@ -1,10 +1,10 @@
 import Jewelry from "./StoreCrystal";
 
-function StoreList({jewelrys}) {
+function StoreList({crystals, modal}) {
 
     return (
         <div className="jewelry__list">
-            {jewelrys.map(crystal => <Jewelry key={crystal.id} crystal={crystal}></Jewelry>)}
+            {crystals.map(crystal => <Jewelry key={crystal.id} crystal={crystal} modal={modal}></Jewelry>)}
         </div>
     )
 }

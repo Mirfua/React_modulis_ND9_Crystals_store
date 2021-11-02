@@ -8,6 +8,12 @@ function StoreModal({showModal, hide, crystal, edit, remove}) {
         last_order: ''
     })
 
+    const formControl = (e, what) => {
+        const inputsCopy = { ...inputs };
+        inputsCopy[what] = e.target.value;
+        setInputs(inputsCopy);
+    }
+
     useEffect(() => {
         setInputs({
             product: crystal.product,
@@ -26,14 +32,7 @@ function StoreModal({showModal, hide, crystal, edit, remove}) {
         }, crystal.id)
     }
 
-    const formControl = (e, what) => {
-        const inputsCopy = { ...inputs };
-        inputsCopy[what] = e.target.value;
-        setInputs(inputsCopy);
-    }
-
-
-
+    
     return (
         <div className="store__modal" style={{
             display: showModal ? 'flex' : 'none',

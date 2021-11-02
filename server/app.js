@@ -28,8 +28,9 @@ app.get('/test', (req, res) => {
 })
 
 
-// Visi kristalai
-app.get('/mystore', (req, res) => {
+// Visi kristalu domenys
+
+app.get('/jewelry', (req, res) => {
     const sql = `
         SELECT *
         FROM jewelry
@@ -41,6 +42,84 @@ app.get('/mystore', (req, res) => {
         res.send(results);
     })
 })
+
+
+// Prideti nauja crystala
+// INSERT INTO table_name (column1, column2, column3, ...)
+// VALUES (value1, value2, value3, ...);
+app.post('/jewelry', (req, res) => {
+    const sql = `
+        INSERT INTO jewelry
+        (product, quantity, price, last_order)
+        VALUES (?, ?, ?, ?)
+    `;
+    con.query(sql, [
+        req.body.product,
+        req.body.quantity,
+        req.body.price,
+        req.body.last_order
+    ], (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+// Crystalu redagavimas
+// UPDATE table_name
+// SET column1 = value1, column2 = value2, ...
+// WHERE condition;
+app.put('/jewelry/:id', (req, res) => {
+    const sql = `
+        UPDATE animals
+        SET product = ?, quantity = ?, price = ?, last_order = ?
+        WHERE id = ?
+    `;
+    con.query(sql, [
+        req.body.product,
+        req.body.quantity,
+        req.body.price,
+        req.body.last_order,
+        req.params.id
+    ], (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+// Trina gyvuna
+// DELETE FROM table_name
+// WHERE some_column = some_value
+app.delete('/jewelry/:id', (req, res) => {
+    const sql = `
+        DELETE FROM jewelry
+        WHERE id = ?
+        `;
+    con.query(sql, [req.params.id], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
