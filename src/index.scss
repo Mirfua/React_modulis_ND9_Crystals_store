@@ -68,9 +68,10 @@ button {
     border-radius: 3px;
     width: 100%;
     max-width: 200px;
-    min-width: 140px;
+    min-width: 250px;
     box-sizing: border-box;
-    margin: 10px;
+    margin: 20px;
+    padding: 10px;
 }
             
 .crystals_list {
@@ -83,13 +84,15 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    // flex-direction: column;
 }
 
 .my_store_map {
     display: flex;
     flex-direction: row;
     padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .crystals {
