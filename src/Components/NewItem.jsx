@@ -26,21 +26,21 @@ function NewItem({create}) {
     }
 
     return (
-        <div className="newItem">
+        <div className="main__form">
             <h2>Add new item:</h2>
-            <div className="crystal__form__input">
+            <div className="main__form__input">
                 <span>Item name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
             </div>
-            <div className="crystal__form__input">
+            <div className="main__form__input">
             <span>Quantity</span><input type="text" value={inputs.quantity} onChange={(e) => formControl(e, 'quantity')} />
             </div>
-            <div className="crystal__form__input">
+            <div className="main__form__input">
             <span>Price</span><input type="text" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
             </div>
-            <div className="crystal__form__input">
+            <div className="main__form__input">
             <span>Last order</span><input type="date" value={inputs.last_order} onChange={(e) => formControl(e, 'last_order')} />
             </div>
-            <div className="crystal__form__input">
+            <div className="main__form__input">
             <button onClick={handleCreate}>Add item</button>
             </div>
         </div>

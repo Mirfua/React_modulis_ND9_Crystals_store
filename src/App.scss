@@ -1,3 +1,129 @@
-
-
-
+.main {
+    background-color: steelblue;
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    &__nav {
+        height: 100px;
+        background-color: lightcoral;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        &__filter {
+            font-size: 18px;
+            margin: 20px;
+            span {
+                padding: 0 7px;
+                color: white;
+            }
+        }
+        &__reset {
+            margin: 10px;
+        }
+    }
+    &__list {
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 10px;
+        &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            padding: 5px;
+            border: 3px solid ghostwhite;
+            border-radius: 3px;
+            width: 100%;
+            max-width: 1500px;
+            min-width: 250px;
+            box-sizing: border-box;
+            margin: 15px;
+            &__name {
+                color: ghostwhite;
+                font-size: 15px;
+                text-align: center;
+            }
+            &__quantity {
+                color: yellow;
+                font-size: 15px;
+                text-align: center;
+            }
+            &__price {
+                color: yellow;
+                font-size: 15px;
+                text-align: center;
+            }
+            &__lastOrder {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                color: paleturquoise;
+                font-size: 16px;
+                text-align: center;
+                width: 100%;
+                span {
+                    i {
+                        font-size: 14px;
+                        color: lightcoral;
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    }
+                }
+            }
+        }
+    }
+    &__mystore {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: paleturquoise;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        padding-bottom: 5px;
+        h2 {
+            width: 100vw;
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 22px;
+            color: lightcoral;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        &__input {
+            width: 50vw;
+            margin: 10px 0;
+            &__buttons {
+                display: flex;
+            }
+            span {
+                display: inline-block;
+                width: 15%;
+                padding: 0 0 0 20px;
+                color: white;
+                min-width: 70px;
+            }
+            input {
+                border: none;
+                outline: none;
+            }
+            button {
+                margin-left: 15px;
+            }
+        }
+    }
+    &__modal {
+        position: absolute;
+        left: 10vw;
+        // width: 90%;
+        top: 0;
+        background-color: paleturquoise;
+        border: 3px solid white;
+        box-shadow: 2px 2px 2px gray;
+        .main__form__input {
+            width: 40vw;
+        }
+        .main__form {
+            width: 80vw;
+        }
+    }
+}

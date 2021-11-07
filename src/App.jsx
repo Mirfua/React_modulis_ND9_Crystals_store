@@ -155,12 +155,9 @@ const dateOnly = (data) => {
 
 
     return (
-        <div className="crystals">
+        <div className="main">
             <Modal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></Modal>
-            <div className="navigation">
-            <   h2>Filter types:</h2>
-                <Nav types={types} search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav>
-            </div>
+            <Nav types={types} search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav>
             <StoreList crystals={crystals} modal={modal}></StoreList>
             <NewItem create={create}></NewItem>
         </div>
