@@ -58,7 +58,7 @@ button {
     }
 }
 
-.crystals_crystalList {
+.oneCrystal {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,13 +74,13 @@ button {
     padding: 10px;
 }
             
-.crystals_list {
+.all_crystals_list {
     background-color: rgb(11, 42, 10);
     color: white;
     width: 100vw;
 }
 
-.my_store_welcome {
+.my_store_welcome_tittle {
     display: flex;
     justify-content: center;
     align-items: center;

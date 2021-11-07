@@ -6,7 +6,7 @@ function StoreCrystal({crystal, modal}) {
     }
 
     return (
-        <div className="crystals_crystalList">
+        <div className="oneCrystal">
             <div className="crystal_crystalList__product">
                 <span><i>Item name: </i> {crystal.product}</span>    
             </div>
