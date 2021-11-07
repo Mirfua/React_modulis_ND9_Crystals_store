@@ -10,6 +10,9 @@ app.use(express.urlencoded({
 }))
 app.use(express.json());
 
+
+// --- MY SQL CONNECT ---
+
 const con = mysql.createConnection({
     host: "localhost",
     user: "database",
@@ -22,20 +25,9 @@ con.connect(function(err) {
     console.log("Connected!");
 });
 
-//Routing
-app.get('/', (req, res) => {
-    res.send('Labas, ka tu? As tai nieko.')
-})
+// --- ROUTING part ---
+// All records from data base
 
-app.get('/labas/:id', (req, res) => {
-    res.send(`Pats tu ${req.params.id}.`)
-})
-
-app.get('/test', (req, res) => {
-    res.send(JSON.stringify({ test: 'OK' }))
-})
-
-// Visi papuosalai
 app.get('/crystals', (req, res) => {
     const sql = `
         SELECT *
@@ -50,9 +42,9 @@ app.get('/crystals', (req, res) => {
 })
 
 
-// Prideti item
-// INSERT INTO table_name (column1, column2, column3, ...)
-// VALUES (value1, value2, value3, ...);
+// CRUD parts
+// Add new item
+
 app.post('/crystals', (req, res) => {
     const sql = `
         INSERT INTO crystals
@@ -72,10 +64,8 @@ app.post('/crystals', (req, res) => {
     })
 })
 
-// Redaguoja item
-// UPDATE table_name
-// SET column1 = value1, column2 = value2, ...
-// WHERE condition;
+// Edit item
+
 app.put('/crystals/:id', (req, res) => {
     const sql = `
         UPDATE crystals
@@ -96,9 +86,8 @@ app.put('/crystals/:id', (req, res) => {
     })
 })
 
-// Trina item
-// DELETE FROM table_name
-// WHERE some_column = some_value
+// delete item
+
 app.delete('/crystals/:id', (req, res) => {
     const sql = `
         DELETE FROM crystals
