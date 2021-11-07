@@ -4,10 +4,6 @@ import NewCrystal from "./Components/NewCrystal";
 import StoreList from "./Components/StoreList";
 import StoreModal from "./Components/StoreModal";
 
-// import CrystalsNav from "./Components/CrystalsNav";
-// import crystalSort from "./Common/crystalSort";
-
-
 function App() {
 
     const [crystals, setCrystals] = useState([]);
@@ -22,45 +18,6 @@ function App() {
     })
 
 // sort pridejimas
-
-
-    // const [types, setTypes] = useState([])
-    // const [sortBy, setSortBy] = useState('')
-
-    // const dateOnly = (data) => {
-    //     return data.map(a => {
-    //         a.born = a.born.slice(0, 10);
-    //         return a;
-    //     });
-    // }
-
-    // // const sort = (by) => {
-    // //     setAnimals(animalSort(animals, by));
-    // //     setSortBy(by);
-    // // }
-
-    // useEffect(() => {
-    //     if (sortBy) {
-    //         setCrystals(crystalSort(crystals, sortBy));
-    //     }
-    // }, [sortBy])
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:3003/crystals')
-    //         .then(res => {
-    //             // setAnimals(animalSort(dateOnly(res.data), sortBy));
-    //             setCrystals(dateOnly(res.data));
-    //         })
-    // }, [lastUpdate])
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:3003/crystals-type')
-    //         .then(res => {
-    //             setTypes(res.data);
-    //         })
-    // }, [lastUpdate])
-
-
 
 
 
@@ -108,20 +65,9 @@ function App() {
         })
       }
 
-    // sort
-      
 
-
-    // const reset = () => {
-    //     setLastUpdate(Date.now());
-    // }
-
-
-
-    // 
     return (
-        <div className="crystals">
-            {/* <StoreNav types={types} sort={setSortBy} reset={reset}></StoreNav> */}
+        <div className="crystals">}
             <StoreModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></StoreModal>
             <StoreList crystals={crystals} modal={modal}></StoreList>
             <NewCrystal create={create}></NewCrystal>
