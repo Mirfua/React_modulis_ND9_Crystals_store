@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import NewItem from "./Components/NewItem";
 import StoreList from "./Components/List";
 import Modal from "./Components/Modal";
-// import Nav from "./Components/Nav";
+import Nav from "./Components/Nav";
+import itemSort from "./Common/CrystalsSort";
 
 
 function App() {
@@ -19,56 +20,85 @@ function App() {
         last_order: ''
     })
 
+    const [types, setTypes] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:3003/crystals-product')
+            .then(res => {
+                setTypes(res.data);
+            })
+    }, [lastUpdate])
+
+
+
+// date formating
+
+const dateOnly = (data) => {
+    return data.map(a => {
+        a.born = a.born.slice(0, 10);
+        return a;
+    });
+}
+
+
 
 // SORT pridejimas
 
-    // const [sortBy, setSortBy] = useState('');
+    const [sortBy, setSortBy] = useState('');
 
-    // useEffect(() => {
-    //     if (sortBy) {
-    //         setItems(Sort(items, sortBy, setFilterBy));
-    //         // console.log(res.data);
-    //     }
-    // }, [sortBy])
+    // const sort = (by) => {
+    //     setAnimals(animalSort(animals, by));
+    //     setSortBy(by);
+    // }
 
+    useEffect(() => {
+        if (sortBy) {
+            setCrystals(itemSort(crystals, sortBy));
+        }
+    }, [sortBy])
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3003/animals')
+            .then(res => {
+                // setCrystals(animalSort(dateOnly(res.data), sortBy));
+                setCrystals(dateOnly(res.data));
+            })
+    }, [lastUpdate])
 
 
 // SEARCH pridejimas
 
-    // const [searchBy, setSearchBy] = useState('');
+    const [searchBy, setSearchBy] = useState('');
 
-    // useEffect(() => {
-    //     if (searchBy) {
-    //     axios.get('http://localhost:3003/item-search/?s='+searchBy)
-    //         .then(res => {
-    //             setItems(fixDate(res.data));
-    //             // console.log(res.data);
-    //         })
-    //     }
-    // }, [searchBy])
+    useEffect(() => {
+        if (searchBy) {
+        axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
+            .then(res => {
+                setCrystals(dateOnly(res.data));
+                // console.log(res.data);
+            })
+        }
+    }, [searchBy])
 
 
 
 // FILTER pridejimas
 
-    // const [filterBy, setFilterBy] = useState('');
+    const [filterBy, setFilterBy] = useState('');
 
-    // useEffect(() => {
-    //     if (filterBy) {
-    //         axios.get('http://localhost:3003/stock-filter/'+filterBy)
-    //         .then(res => {
-    //             setItems(fixDate(res.data));
-    //             // console.log(res.data);
-    //         })
-    //     }
-    // }, [filterBy])
+    useEffect(() => {
+        if (filterBy) {
+            axios.get('http://localhost:3003/crystals-filter/'+filterBy)
+            .then(res => {
+                setCrystals(dateOnly(res.data));
+            })
+        }
+    }, [filterBy])
 
-    // const reset = () => {
-    //     setLastUpdate(Date.now());
-    // }
-
-
-
+    const reset = () => {
+        setLastUpdate(Date.now());
+    }
 
 
 
@@ -78,7 +108,7 @@ function App() {
         axios.get('http://localhost:3003/crystals')
         .then(res => {
             setCrystals(res.data);
-            console.log(res.data);
+            // console.log(res.data);
         })
     }, [lastUpdate])
 
@@ -133,7 +163,7 @@ function App() {
         <div className="crystals">
             <Modal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></Modal>
             <div className="Nav">
-                {/* <Nav  search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav> */}
+                <Nav types={types} search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav>
             </div>
             <StoreList crystals={crystals} modal={modal}></StoreList>
             <NewItem create={create}></NewItem>

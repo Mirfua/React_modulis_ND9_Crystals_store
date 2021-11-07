@@ -102,6 +102,54 @@ app.delete('/crystals/:id', (req, res) => {
 })
 
 
+//  FILTER< SORT< SEARCH
+// Randa visus skirtingus crystalus pagal pavadynima "product"" is crystalu domenu bazess
+app.get('/crystals-product', (req, res) => {
+    const sql = `
+        SELECT DISTINCT product
+        FROM crystals
+    `;
+    con.query(sql, (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+//Filter - rodo tik tam tikra "product" name'a bet ne visus "product"" is crystalu domenu bazess
+app.get('/crystals-filter/:t', (req, res) => {
+    const sql = `
+        SELECT *
+        FROM crystals
+        WHERE product = ?
+    `;
+    con.query(sql, [req.params.t], (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+// paieska pagal pavadynima arba raktini zodi ju pavadinimuose
+app.get('/crystals-product', (req, res) => {
+    const sql = `
+        SELECT *
+        FROM crystals
+        WHERE product LIKE ?
+    `;
+    con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+
+
+
 app.listen(port, () => {
     // console.log(`Example app listening at http://localhost:${port}`)
 })
