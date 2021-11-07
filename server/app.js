@@ -26,7 +26,7 @@ con.connect(function(err) {
 });
 
 // --- ROUTING part ---
-// All records from data base
+// All records from data base routing
 
 app.get('/crystals', (req, res) => {
     const sql = `

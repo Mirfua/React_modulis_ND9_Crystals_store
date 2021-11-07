@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function NewCrystal({create}) {
+function NewItem({create}) {
 
     const [inputs, setInputs] = useState({
         product: '',
@@ -47,4 +47,4 @@ function NewCrystal({create}) {
     )
 }
 
-export default NewCrystal;
+export default NewItem;

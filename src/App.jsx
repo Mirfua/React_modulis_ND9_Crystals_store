@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import NewCrystal from "./Components/NewCrystal";
-import StoreList from "./Components/StoreList";
-import StoreModal from "./Components/StoreModal";
+import NewItem from "./Components/NewItem";
+import StoreList from "./Components/List";
+import Modal from "./Components/Modal";
+// import Nav from "./Components/Nav";
+
 
 function App() {
 
@@ -17,12 +19,60 @@ function App() {
         last_order: ''
     })
 
-// sort pridejimas
+
+// SORT pridejimas
+
+    // const [sortBy, setSortBy] = useState('');
+
+    // useEffect(() => {
+    //     if (sortBy) {
+    //         setItems(Sort(items, sortBy, setFilterBy));
+    //         // console.log(res.data);
+    //     }
+    // }, [sortBy])
 
 
 
-// sort pridejimas
+// SEARCH pridejimas
 
+    // const [searchBy, setSearchBy] = useState('');
+
+    // useEffect(() => {
+    //     if (searchBy) {
+    //     axios.get('http://localhost:3003/item-search/?s='+searchBy)
+    //         .then(res => {
+    //             setItems(fixDate(res.data));
+    //             // console.log(res.data);
+    //         })
+    //     }
+    // }, [searchBy])
+
+
+
+// FILTER pridejimas
+
+    // const [filterBy, setFilterBy] = useState('');
+
+    // useEffect(() => {
+    //     if (filterBy) {
+    //         axios.get('http://localhost:3003/stock-filter/'+filterBy)
+    //         .then(res => {
+    //             setItems(fixDate(res.data));
+    //             // console.log(res.data);
+    //         })
+    //     }
+    // }, [filterBy])
+
+    // const reset = () => {
+    //     setLastUpdate(Date.now());
+    // }
+
+
+
+
+
+
+// ALL RECORDS
 
     useEffect(() => {
         axios.get('http://localhost:3003/crystals')
@@ -32,6 +82,9 @@ function App() {
         })
     }, [lastUpdate])
 
+
+// create RECORD
+
     const create = crystal => {
         axios.post('http://localhost:3003/crystals', crystal)
         .then(res => {
@@ -39,14 +92,9 @@ function App() {
             console.log(res.data);
         })
     }
-    const modal = (crystal) => {
-        setShowModal(true);
-        setModalElement(crystal);
-    }
-    
-    const hide = () => {
-        setShowModal(false);
-    }
+
+// edit RECORD
+
     const edit = (crystal, id) => {
         setShowModal(false);
         axios.put('http://localhost:3003/crystals/' + id, crystal)
@@ -54,23 +102,41 @@ function App() {
             setLastUpdate(Date.now())
             console.log(res.data);
         })
-      }
+    }
     
-      const remove = (id) => {
+
+// remove RECORD
+
+    const remove = (id) => {
         setShowModal(false);
         axios.delete('http://localhost:3003/crystals/' + id)
         .then(res => {
             setLastUpdate(Date.now())
             console.log(res.data);
         })
-      }
+    }
+
+
+// modal 
+
+    const modal = (crystal) => {
+        setShowModal(true);
+        setModalElement(crystal);
+    }
+
+    const hide = () => {
+        setShowModal(false);
+    }
 
 
     return (
-        <div className="crystals">}
-            <StoreModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></StoreModal>
+        <div className="crystals">
+            <Modal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></Modal>
+            <div className="Nav">
+                {/* <Nav  search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav> */}
+            </div>
             <StoreList crystals={crystals} modal={modal}></StoreList>
-            <NewCrystal create={create}></NewCrystal>
+            <NewItem create={create}></NewItem>
         </div>
     )
 }

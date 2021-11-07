@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function StoreModal({showModal, hide, modalElement, edit, remove}) {
+function Modal({showModal, hide, modalElement, edit, remove}) {
 
     const [inputs, setInputs] = useState({
         product: '',
@@ -58,4 +58,4 @@ function StoreModal({showModal, hide, modalElement, edit, remove}) {
 
     );
 }
-export default StoreModal;
+export default Modal;

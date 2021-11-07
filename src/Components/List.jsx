@@ -1,6 +1,6 @@
 import StoreCrystal from "./StoreCrystal";
 
-function StoreList({crystals, modal}) {
+function List({crystals, modal}) {
 
     return (
         <div className="crystals_list">
@@ -14,4 +14,4 @@ function StoreList({crystals, modal}) {
     )
 }
 
-export default StoreList;
+export default List;
