@@ -1,5 +1,6 @@
-function itemSort(allItems, by) {
-    let crystals = allItems.slice();
+function itemSort(state, by) {
+    const crystals = state.slice();
+    
     switch (by) {
         case 'product_name_asc':
             crystals.sort((a, b) => {

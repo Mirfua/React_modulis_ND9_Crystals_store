@@ -31,19 +31,19 @@ function Nav({reset, search, sort, filter, types }) {
             <div className="Items_nav_filter">
                 <span>Sort products by:</span>
                 <select onChange={selectSort} value={sortValue}>
-                    <option value="">Select animal</option>
+                    <option value="">Select sort type</option>
                     <option value="product_name_asc">By name - from A to Z</option>
                     <option value="product_name_desc">By name - from Z to A</option>
-                    <option value="weigprice_ascht_asc">By price - 1,2,3...</option>
-                    <option value="price_desc">By price - ...3,2,1</option>
+                    <option value="price_ascht_asc">By price from smallest</option>
+                    <option value="price_desc">By price from biggest</option>
                 </select>
             </div>
             <div className="Items_nav_filter">
-                <span>Filter by product quantity</span>
+                <span>Filter by product name</span>
                 <select onChange={selectFilter} value={filterValue}>
                     <option value="">Select item</option>
                     {
-                        types.map(t => <option key={t.quantity} value={t.quantity}>{t.quantity}</option>)
+                        types.map(t => <option key={t.product} value={t.product}>{t.product}</option>)
                     }
                 </select>
             </div>

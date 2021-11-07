@@ -27,7 +27,7 @@ function NewItem({create}) {
 
     return (
         <div className="newItem">
-            <h2>Add new item to mine store ???</h2>
+            <h2>Add new item:</h2>
             <div className="crystal__form__input">
                 <span>Item name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
             </div>

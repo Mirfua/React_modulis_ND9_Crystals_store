@@ -13,7 +13,7 @@ function App() {
     const [lastUpdate, setLastUpdate] = useState(Date.now());
     const [showModal, setShowModal] = useState(false);
     const [modalElement, setModalElement] = useState({
-
+        
         product: '',
         quantity: '',
         price: '',
@@ -35,7 +35,7 @@ function App() {
 
 const dateOnly = (data) => {
     return data.map(a => {
-        a.born = a.born.slice(0, 10);
+        a.last_order = a.last_order.slice(0, 10);
         return a;
     });
 }
@@ -46,11 +46,6 @@ const dateOnly = (data) => {
 
     const [sortBy, setSortBy] = useState('');
 
-    // const sort = (by) => {
-    //     setAnimals(animalSort(animals, by));
-    //     setSortBy(by);
-    // }
-
     useEffect(() => {
         if (sortBy) {
             setCrystals(itemSort(crystals, sortBy));
@@ -59,7 +54,7 @@ const dateOnly = (data) => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3003/animals')
+        axios.get('http://localhost:3003/crystals')
             .then(res => {
                 // setCrystals(animalSort(dateOnly(res.data), sortBy));
                 setCrystals(dateOnly(res.data));
@@ -73,7 +68,7 @@ const dateOnly = (data) => {
 
     useEffect(() => {
         if (searchBy) {
-        axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
+        axios.get('http://localhost:3003/crystals-search/?s='+searchBy)
             .then(res => {
                 setCrystals(dateOnly(res.data));
                 // console.log(res.data);
@@ -147,7 +142,7 @@ const dateOnly = (data) => {
     }
 
 
-// modal 
+// modal  show/hide
 
     const modal = (crystal) => {
         setShowModal(true);
@@ -162,7 +157,8 @@ const dateOnly = (data) => {
     return (
         <div className="crystals">
             <Modal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></Modal>
-            <div className="Nav">
+            <div className="navigation">
+            <   h2>Filter types:</h2>
                 <Nav types={types} search={setSearchBy} filter={setFilterBy} sort={setSortBy} reset={reset}></Nav>
             </div>
             <StoreList crystals={crystals} modal={modal}></StoreList>

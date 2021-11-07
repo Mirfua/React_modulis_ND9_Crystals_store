@@ -60,14 +60,14 @@ button {
 
 .oneCrystal {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     padding: 5px;
     border: 3px solid ghostwhite;
     border-radius: 3px;
     width: 100%;
-    max-width: 200px;
+    max-width: 1000px;
     min-width: 250px;
     box-sizing: border-box;
     margin: 20px;
@@ -84,7 +84,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    // flex-direction: column;
+    flex-direction: column;
 }
 
 .my_store_map {
@@ -92,11 +92,13 @@ button {
     flex-direction: row;
     padding: 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .crystals {
     background-color: rgb(24, 128, 85);
+    
+
 }
 
 .newItem {
@@ -104,10 +106,16 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 10px;
 }
 
 .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navigation {
     display: flex;
     justify-content: center;
     align-items: center;
