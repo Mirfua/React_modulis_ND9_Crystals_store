@@ -4,8 +4,8 @@ import NewCrystal from "./Components/NewCrystal";
 import StoreList from "./Components/StoreList";
 import StoreModal from "./Components/StoreModal";
 
-import CrystalsNav from "./Components/CrystalsNav";
-import crystalSort from "./Common/crystalSort";
+// import CrystalsNav from "./Components/CrystalsNav";
+// import crystalSort from "./Common/crystalSort";
 
 
 function App() {
@@ -24,41 +24,41 @@ function App() {
 // sort pridejimas
 
 
-    const [types, setTypes] = useState([])
-    const [sortBy, setSortBy] = useState('')
+    // const [types, setTypes] = useState([])
+    // const [sortBy, setSortBy] = useState('')
 
-    const dateOnly = (data) => {
-        return data.map(a => {
-            a.born = a.born.slice(0, 10);
-            return a;
-        });
-    }
-
-    // const sort = (by) => {
-    //     setAnimals(animalSort(animals, by));
-    //     setSortBy(by);
+    // const dateOnly = (data) => {
+    //     return data.map(a => {
+    //         a.born = a.born.slice(0, 10);
+    //         return a;
+    //     });
     // }
 
-    useEffect(() => {
-        if (sortBy) {
-            setCrystals(crystalSort(crystals, sortBy));
-        }
-    }, [sortBy])
+    // // const sort = (by) => {
+    // //     setAnimals(animalSort(animals, by));
+    // //     setSortBy(by);
+    // // }
 
-    useEffect(() => {
-        axios.get('http://localhost:3003/crystals')
-            .then(res => {
-                // setAnimals(animalSort(dateOnly(res.data), sortBy));
-                setCrystals(dateOnly(res.data));
-            })
-    }, [lastUpdate])
+    // useEffect(() => {
+    //     if (sortBy) {
+    //         setCrystals(crystalSort(crystals, sortBy));
+    //     }
+    // }, [sortBy])
 
-    useEffect(() => {
-        axios.get('http://localhost:3003/crystals-type')
-            .then(res => {
-                setTypes(res.data);
-            })
-    }, [lastUpdate])
+    // useEffect(() => {
+    //     axios.get('http://localhost:3003/crystals')
+    //         .then(res => {
+    //             // setAnimals(animalSort(dateOnly(res.data), sortBy));
+    //             setCrystals(dateOnly(res.data));
+    //         })
+    // }, [lastUpdate])
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:3003/crystals-type')
+    //         .then(res => {
+    //             setTypes(res.data);
+    //         })
+    // }, [lastUpdate])
 
 
 
@@ -112,16 +112,16 @@ function App() {
       
 
 
-    const reset = () => {
-        setLastUpdate(Date.now());
-    }
+    // const reset = () => {
+    //     setLastUpdate(Date.now());
+    // }
 
 
 
     // 
     return (
         <div className="crystals">
-            <StoreNav types={types} sort={setSortBy} reset={reset}></StoreNav>
+            {/* <StoreNav types={types} sort={setSortBy} reset={reset}></StoreNav> */}
             <StoreModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}></StoreModal>
             <StoreList crystals={crystals} modal={modal}></StoreList>
             <NewCrystal create={create}></NewCrystal>
