@@ -14,7 +14,7 @@ function StoreCrystal({crystal, modal}) {
                 <span><i>Quantity: </i> {crystal.quantity}</span>    
             </div>
             <div className="main__list__item__price">
-                <span><i>Price: </i> {crystal.price} Eur</span>          
+                <span><i>Price:</i> {crystal.price} Eur</span>          
             </div>
             <div className="main__list__item__lastOrder">
                 <span><i>Last order: </i> {crystal.last_order.slice(0, 10)}</span>    

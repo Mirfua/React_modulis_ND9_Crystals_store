@@ -48,11 +48,11 @@ function Nav({reset, search, sort, filter, types }) {
                 </select>
             </div>
             <div className="main__nav__filter">
-                <span>Search by product name</span>
+                <span>Search</span>
                 <input onChange={handleSearchValue} value={searchValue}></input>
             </div>
             <div className="main__nav__reset">
-                <button onClick={resetHandler}>Reset items on list</button>
+                <button onClick={resetHandler}>Reset</button>
             </div>
         </div>
 

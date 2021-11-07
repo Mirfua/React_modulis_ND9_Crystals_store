@@ -32,10 +32,10 @@ function NewItem({create}) {
                 <span>Item name</span><input type="text" value={inputs.product} onChange={(e) => formControl(e, 'product')} />
             </div>
             <div className="main__form__input">
-            <span>Quantity</span><input type="text" value={inputs.quantity} onChange={(e) => formControl(e, 'quantity')} />
+            <span>Quantity</span><input type="number" value={inputs.quantity} onChange={(e) => formControl(e, 'quantity')} />
             </div>
             <div className="main__form__input">
-            <span>Price</span><input type="text" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
+            <span>Price</span><input type="number" value={inputs.price} onChange={(e) => formControl(e, 'price')} />
             </div>
             <div className="main__form__input">
             <span>Last order</span><input type="date" value={inputs.last_order} onChange={(e) => formControl(e, 'last_order')} />

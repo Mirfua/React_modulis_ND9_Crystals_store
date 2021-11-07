@@ -23,16 +23,16 @@ button {
     width: 120px;
     line-height: 38px;
     overflow: hidden;
-    background: #b41b1b;
+    background: #5b85e9;
     border-radius: 3px;
-    box-shadow: 0 15px 30px rgba(black, .1);
+    box-shadow: 0 15px 30px rgba(rgb(255, 255, 255), .1);
     border: 0;
     cursor: pointer;
     transition: all .3s ease;
     margin: 7px;
     &:hover,
     &:focus {
-        box-shadow: 0 5px 15px rgba(black, .1);
+        box-shadow: 0 5px 15px rgba(rgb(255, 255, 255), .1);
     }
     &.animated {
         animation: .75s short-press cubic-bezier(0.770, 0.000, 0.175, 1.000) forwards;

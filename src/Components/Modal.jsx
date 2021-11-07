@@ -45,10 +45,10 @@ function Modal({showModal, hide, modalElement, edit, remove}) {
                     <span>Edit name: </span> <input type="text" value={inputs.product} onChange={(e) => control(e, 'product')} />
                 </div>
                 <div className='main__form__input'>
-                    <span>Edit type: </span> <input type="text" value={inputs.quantity} onChange={(e) => control(e, 'quantity')} />
+                    <span>Edit type: </span> <input type="number" value={inputs.quantity} onChange={(e) => control(e, 'quantity')} />
                 </div>
                 <div className='main__form__input'>
-                    <span>Edit price: </span> <input type="text" value={inputs.price} onChange={(e) => control(e, 'price')} />
+                    <span>Edit price: </span> <input type="number" value={inputs.price} onChange={(e) => control(e, 'price')} />
                 </div>
                 <div className='main__form__input'>
                     <span>Edit last order date: </span> <input type="date" value={inputs.last_order} onChange={(e) => control(e, 'last_order')} />
