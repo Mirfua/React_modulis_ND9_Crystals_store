@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NewItem from "./Components/NewItem";
 import StoreList from "./Components/List";
 import Modal from "./Components/Modal";
@@ -19,6 +19,8 @@ function App() {
         price: '',
         last_order: ''
     })
+
+    //const sortBy= useRef('');
 
     const [types, setTypes] = useState([])
 
@@ -78,6 +80,25 @@ const dateOnly = (data) => {
 
 
 
+
+    // EDITED LAST
+
+    // const [searchBy, setSearchBy] = useState('');
+
+    // useEffect(() => {
+    //     if (searchBy) {
+    //     console.log(searchBy)
+    //     axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
+    //         .then(res => {
+    //             setCrystals(itemSort(dateOnly(res.data), sortBy));
+    //             // console.log(res.data);
+    //         })
+    //     }
+    // }, [searchBy])
+
+
+
+
 // FILTER pridejimas
 
     const [filterBy, setFilterBy] = useState('');
@@ -121,7 +142,6 @@ const dateOnly = (data) => {
 // edit RECORD
 
     const edit = (crystal, id) => {
-        console.log(crystal)
         setShowModal(false);
         axios.put('http://localhost:3003/crystals/' + id, crystal)
         .then(res => {
