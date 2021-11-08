@@ -121,6 +121,7 @@ const dateOnly = (data) => {
 // edit RECORD
 
     const edit = (crystal, id) => {
+        console.log(crystal)
         setShowModal(false);
         axios.put('http://localhost:3003/crystals/' + id, crystal)
         .then(res => {

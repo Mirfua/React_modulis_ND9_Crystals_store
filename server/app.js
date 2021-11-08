@@ -75,7 +75,7 @@ app.put('/crystals/:id', (req, res) => {
     con.query(sql, [
         req.body.product,
         req.body.quantity,
-        req.body.weight,
+        req.body.price,
         req.body.last_order,
         req.params.id
     ], (err, results) => {

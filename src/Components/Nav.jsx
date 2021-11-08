@@ -34,7 +34,7 @@ function Nav({reset, search, sort, filter, types }) {
                     <option value="">Select</option>
                     <option value="product_name_asc">By name - from A to Z</option>
                     <option value="product_name_desc">By name - from Z to A</option>
-                    <option value="price_ascht_asc">By price - from smallest</option>
+                    <option value="price_asc">By price - from smallest</option>
                     <option value="price_desc">By price - from biggest</option>
                 </select>
             </div>
