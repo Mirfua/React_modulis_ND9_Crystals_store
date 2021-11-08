@@ -70,7 +70,7 @@ const dateOnly = (data) => {
 
     useEffect(() => {
         if (searchBy) {
-        axios.get('http://localhost:3003/crystals-search/?s='+searchBy)
+        axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
             .then(res => {
                 setCrystals(dateOnly(res.data));
                 // console.log(res.data);
