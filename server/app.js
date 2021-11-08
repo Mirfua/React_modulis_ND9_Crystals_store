@@ -126,7 +126,7 @@ app.get('/crystals-filter/:t', (req, res) => {
         FROM crystals
         WHERE product = ?
     `;
-    console.log(req.query.s);
+    
     con.query(sql, [req.params.t], (err, results) => {
         if (err) {
             throw err;
