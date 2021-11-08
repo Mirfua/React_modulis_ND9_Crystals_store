@@ -102,22 +102,7 @@ app.delete('/crystals/:id', (req, res) => {
 })
 
 
-//  FILTER< SORT< SEARCH
-// Randa visus skirtingus pagal pavadynima "product"" is crystalu domenu bazess
-
-app.get('/crystals-product', (req, res) => {
-    const sql = `
-        SELECT DISTINCT product
-        FROM crystals
-    `;
-    con.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        res.send(results);
-    })
-})
-
+//FILTER< SORT< SEARCH
 //Filter - rodo tik tam tikra "product" is crystalu domenu bazess
 
 app.get('/crystals-filter/:t', (req, res) => {

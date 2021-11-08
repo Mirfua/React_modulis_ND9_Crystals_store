@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import NewItem from "./Components/NewItem";
 import StoreList from "./Components/List";
 import Modal from "./Components/Modal";
@@ -58,9 +58,9 @@ const dateOnly = (data) => {
     useEffect(() => {
         axios.get('http://localhost:3003/crystals')
             .then(res => {
-                // setCrystals(animalSort(dateOnly(res.data), sortBy));
                 setCrystals(dateOnly(res.data));
-            })
+                setTypes(res.data.filter(a => a.product))
+            }).catch(err => console.log(err))
     }, [lastUpdate])
 
 
@@ -73,30 +73,9 @@ const dateOnly = (data) => {
         axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
             .then(res => {
                 setCrystals(dateOnly(res.data));
-                // console.log(res.data);
-            })
+            }).catch(err => console.log(err))
         }
     }, [searchBy])
-
-
-
-
-    // EDITED LAST
-
-    // const [searchBy, setSearchBy] = useState('');
-
-    // useEffect(() => {
-    //     if (searchBy) {
-    //     console.log(searchBy)
-    //     axios.get('http://localhost:3003/crystals-product/?s='+searchBy)
-    //         .then(res => {
-    //             setCrystals(itemSort(dateOnly(res.data), sortBy));
-    //             // console.log(res.data);
-    //         })
-    //     }
-    // }, [searchBy])
-
-
 
 
 // FILTER pridejimas
