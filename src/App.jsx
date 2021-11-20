@@ -20,19 +20,6 @@ function App() {
         last_order: ''
     })
 
-    //const sortBy= useRef('');
-
-    const [types, setTypes] = useState([])
-
-    useEffect(() => {
-        axios.get('http://localhost:3003/crystals-product')
-            .then(res => {
-                setTypes(res.data);
-            })
-    }, [lastUpdate])
-
-
-
 // date formating
 
 const dateOnly = (data) => {
@@ -46,6 +33,9 @@ const dateOnly = (data) => {
 
 // SORT pridejimas
 
+    //const sortBy= useRef('');
+
+    const [types, setTypes] = useState([])
     const [sortBy, setSortBy] = useState('');
 
     useEffect(() => {
